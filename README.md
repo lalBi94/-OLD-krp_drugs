@@ -17,3 +17,23 @@ remove(anim)
 > **anim = Config.anim.{"recolt", "treatment", "sell"}.animation**  _(STRING)_
 
 **Info :** Function that stops an animation
+
+## _Triggers `server/`_
+**There are 3 different triggers per drug:**
+
+```
+RegisterNetEvent("Zod#8682::recoltYourDrug")
+```
+> Manage the action when the player collecting drugs
+
+<br/></br>
+```
+RegisterNetEvent("Zod#8682::treatYourDrug")
+```
+> Manage the action when the player transforming drugs
+
+<br/></br>
+```
+RegisterNetEvent("Zod#8682::selltYourDrug")
+```
+> Manage the action when the player selling drugs
