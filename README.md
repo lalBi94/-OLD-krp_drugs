@@ -1,3 +1,9 @@
+## _Credits_
+> **Creator : Zod#8682**
+> **You can contact me on discord at any time**
+
+<br/>
+
 ## _Functions `client/`_<br/>
 ```
 drp_drug(drug, action)
