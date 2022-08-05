@@ -1,9 +1,3 @@
-## _Credits_
-> **Creator : Zod#8682** <br/>
-> **You can contact me on discord at any time**
-
-<br/>
-
 ## _Functions `client/`_<br/>
 ```
 drp_drug(drug, action)
@@ -46,3 +40,9 @@ RegisterNetEvent("Zod#8682::treatYourDrug")
 RegisterNetEvent("Zod#8682::selltYourDrug")
 ```
 > Manage the action when the player selling drugs
+
+<br/>
+
+## _Credits_
+> **Creator : Zod#8682** <br/>
+> **You can contact me on discord at any time**
