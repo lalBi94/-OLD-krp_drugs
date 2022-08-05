@@ -17,6 +17,8 @@ remove(anim)
 
 **Info :** Function that stops an animation
 
+<br/><br/>
+
 ## _Triggers `server/`_
 **There are 3 different triggers per drug:**
 
