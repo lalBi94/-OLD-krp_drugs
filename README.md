@@ -44,5 +44,5 @@ RegisterNetEvent("Zod#8682::selltYourDrug")
 <br/>
 
 ## _Credits_
-> **Creator : Zod#8682** <br/>
+> **Owner : Zod#8682** <br/>
 > **You can contact me on discord at any time**
