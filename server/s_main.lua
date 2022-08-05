@@ -16,7 +16,7 @@ RegisterNetEvent("Zod#8682::sellMeth")
 
 range = 10
 
--- Nom des items
+-- Name of items
 items = {
     weedrec = "weedbrute", 
     weedtreat = "weedemballage",
@@ -26,13 +26,14 @@ items = {
     methtreat = "methemballage"
 }
 
--- Prix des drogues (en argent sale)
+-- Drugs price (in black money)
 prices = {
     weed = 10,
     coca = 60,
     meth = 27
 }
 
+-- Position of the points to detect an "illegal" trigger
 location = {
     weed = {
         weedrecolt = vector3(-179.314, 855.187, 232.699),
@@ -53,7 +54,7 @@ location = {
     }
 }
 
--- Phrase dite
+-- Sentence said
 notif = {
     weed = {
         weederr = {
@@ -83,6 +84,7 @@ notif = {
     },
     
     bonus = {
+        -- Doing an action (kick/ban) is more recommendable than sending him this :)
         cheat = "~r~Tu cheat ?"
     }
 }
@@ -94,6 +96,7 @@ AddEventHandler("Zod#8682::recoltWeed", function()
     
     if(#(vector3(coords.x, coords.y, coords.z) - location.weed.weedrecolt) > range) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.addInventoryItem(items.weedrec, 1)
     end
@@ -103,9 +106,20 @@ AddEventHandler("Zod#8682::treatWeed", function()
     local _src = source
     local xPlayer = ESX.GetPlayerFromId(_src)
     local coords = xPlayer.getCoords(true)
+    local itsPossible = xPlayer.getInventoryItem(items.weedrec).count
+
+    if(itsPossible == 0 or itsPossible < 0) then
+        TriggerClientEvent('esx:showNotification', _src, notif.weed.weederr.noweed)
+        return
+    end
+
+    if(itsPossible == 1) then
+        TriggerClientEvent('esx:showNotification', _src, notif.weed.weederr.weedfinish)
+    end
     
-    if(#(vector3(coords.x, coords.y, coords.z) - location.weed.weedtreat) > range) then
+    if(#(vector3(coords.x, coords.y, coords.z) - location.weed.weedtreat) > range and itsPossible > 0) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.removeInventoryItem(items.weedrec, 1)
         xPlayer.addInventoryItem(items.weedtreat, 1)
@@ -116,11 +130,23 @@ AddEventHandler("Zod#8682::selltWeed", function()
     local _src = source
     local xPlayer = ESX.GetPlayerFromId(_src)
     local coords = xPlayer.getCoords(true)
+    local itsPossible = xPlayer.getInventoryItem(items.weedtreat).count
+
+    if(itsPossible == 0 or itsPossible < 0) then
+        TriggerClientEvent('esx:showNotification', _src, notif.weed.weederr.noweedtosell)
+        return
+    end
+
+    if(itsPossible == 1) then
+        TriggerClientEvent('esx:showNotification', _src, notif.weed.weederr.weedtreatfinish)
+    end
     
-    if(#(vector3(coords.x, coords.y, coords.z) - location.weed.weedsell) > range) then
+    if(#(vector3(coords.x, coords.y, coords.z) - location.weed.weedsell) > range and itsPossible > 0) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.removeInventoryItem(items.weedtreat, 1)
+        xPlayer.addAccountMoney('black_money', prices.weed)
     end
 end)
 
@@ -131,6 +157,7 @@ AddEventHandler("Zod#8682::recoltCoca", function()
     
     if(#(vector3(coords.x, coords.y, coords.z) - location.coca.cocarecolt) > range) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.addInventoryItem(items.cocarec, 1)
     end
@@ -140,9 +167,20 @@ AddEventHandler("Zod#8682::treatCoca", function()
     local _src = source
     local xPlayer = ESX.GetPlayerFromId(_src)
     local coords = xPlayer.getCoords(true)
+    local itsPossible = xPlayer.getInventoryItem(items.cocarec).count
+
+    if(itsPossible == 0 or itsPossible < 0) then
+        TriggerClientEvent('esx:showNotification', _src, notif.coca.cocaerr.nococa)
+        return
+    end
+
+    if(itsPossible == 1) then
+        TriggerClientEvent('esx:showNotification', _src, notif.coca.cocaerr.cocafinish)
+    end
     
-    if(#(vector3(coords.x, coords.y, coords.z) - location.coca.cocatreatment) > range) then
+    if(#(vector3(coords.x, coords.y, coords.z) - location.coca.cocatreatment) > range and itsPossible > 0) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.removeInventoryItem(items.cocarec, 1)
         xPlayer.addInventoryItem(items.cocatreat, 1)
@@ -153,16 +191,25 @@ AddEventHandler("Zod#8682::selltCoca", function()
     local _src = source
     local xPlayer = ESX.GetPlayerFromId(_src)
     local coords = xPlayer.getCoords(true)
+    local itsPossible = xPlayer.getInventoryItem(items.cocatreat).count
+
+    if(itsPossible == 0 or itsPossible < 0) then
+        TriggerClientEvent('esx:showNotification', _src, notif.coca.cocaerr.nococatosell)
+        return
+    end
+
+    if(itsPossible == 1) then
+        TriggerClientEvent('esx:showNotification', _src, notif.coca.cocaerr.cocatreatfinish)
+    end
     
-    if(#(vector3(coords.x, coords.y, coords.z) - location.coca.cocasell) > range) then
+    if(#(vector3(coords.x, coords.y, coords.z) - location.coca.cocasell) > range and itsPossible > 0) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.removeInventoryItem(items.cocatreat, 1)
+        xPlayer.addAccountMoney('black_money', prices.coca)
     end
 end)
-
-
-
 
 AddEventHandler("Zod#8682::recoltMeth", function()
     local _src = source
@@ -171,6 +218,7 @@ AddEventHandler("Zod#8682::recoltMeth", function()
     
     if(#(vector3(coords.x, coords.y, coords.z) - location.meth.methrecolt) > range) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.addInventoryItem(items.methrec, 1)
     end
@@ -180,9 +228,20 @@ AddEventHandler("Zod#8682::treatMeth", function()
     local _src = source
     local xPlayer = ESX.GetPlayerFromId(_src)
     local coords = xPlayer.getCoords(true)
+    local itsPossible = xPlayer.getInventoryItem(items.methrec).count
+
+    if(itsPossible == 0 or itsPossible < 0) then
+        TriggerClientEvent('esx:showNotification', _src, notif.meth.metherr.nometh)
+        return
+    end
+
+    if(itsPossible == 1) then
+        TriggerClientEvent('esx:showNotification', _src, notif.meth.metherr.methfinish)
+    end
     
-    if(#(vector3(coords.x, coords.y, coords.z) - location.meth.methtreatment) > range) then
+    if(#(vector3(coords.x, coords.y, coords.z) - location.meth.methtreatment) > range and itsPossible > 0) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.removeInventoryItem(items.methrec, 1)
         xPlayer.addInventoryItem(items.methtreat, 1)
@@ -193,10 +252,22 @@ AddEventHandler("Zod#8682::sellMeth", function()
     local _src = source
     local xPlayer = ESX.GetPlayerFromId(_src)
     local coords = xPlayer.getCoords(true)
+    local itsPossible = xPlayer.getInventoryItem(items.methtreat).count
+
+    if(itsPossible == 0 or itsPossible < 0) then
+        TriggerClientEvent('esx:showNotification', _src, notif.meth.metherr.nomethtosell)
+        return
+    end
+
+    if(itsPossible == 1) then
+        TriggerClientEvent('esx:showNotification', _src, notif.meth.metherr.methtreatfinish)
+    end
     
     if(#(vector3(coords.x, coords.y, coords.z) - location.meth.methsell) > range) then
         TriggerClientEvent('esx:showNotification', _src, notif.bonus.cheat)
+        return
     else
         xPlayer.removeInventoryItem(items.methtreat, 1)
+        xPlayer.addAccountMoney('black_money', prices.meth)
     end
 end)

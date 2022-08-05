@@ -6,8 +6,13 @@ Citizen.CreateThread(function()
         -- Weed
         if(#(Config.weedrecolt - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("weedrecolt", "Appuyer sur ~INPUT_CONTEXT~ pour recolter de la ~g~Weed")
-                DisplayHelpTextThisFrame("weedrecolt", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("weedrecolt", "Appuyer sur ~INPUT_CONTEXT~ pour recolter de la ~g~Weed")
+                    DisplayHelpTextThisFrame("weedrecolt", false)
+                end
             end 
             
             if(not Config.inAction) then
@@ -16,7 +21,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.weedrecolt.x, Config.weedrecolt.y, (Config.weedrecolt.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.color.r, Config.color.g, Config.color.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.weed, "recolt")
             end
@@ -24,8 +29,13 @@ Citizen.CreateThread(function()
 
         if(#(Config.weedtreatment - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("weedtreat", "Appuyer sur ~INPUT_CONTEXT~ pour traiter votre ~g~Weed")
-                DisplayHelpTextThisFrame("weedtreat", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("weedtreat", "Appuyer sur ~INPUT_CONTEXT~ pour traiter votre ~g~Weed")
+                    DisplayHelpTextThisFrame("weedtreat", false)
+                end
             end
             
             if(not Config.inAction) then
@@ -34,7 +44,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.weedtreatment.x, Config.weedtreatment.y, (Config.weedtreatment.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.color.r, Config.color.g, Config.color.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.weed, "treatment")
             end
@@ -42,8 +52,13 @@ Citizen.CreateThread(function()
 
         if(#(Config.weedsell - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("weedsell", "Appuyer sur ~INPUT_CONTEXT~ pour vendre votre ~g~Weed")
-                DisplayHelpTextThisFrame("weedsell", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("weedsell", "Appuyer sur ~INPUT_CONTEXT~ pour vendre votre ~g~Weed")
+                    DisplayHelpTextThisFrame("weedsell", false)
+                end
             end
 
             if(not Config.inAction) then
@@ -52,7 +67,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.weedsell.x, Config.weedsell.y, (Config.weedsell.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.color.r, Config.color.g, Config.color.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.weed, "sell")
             end
@@ -61,8 +76,13 @@ Citizen.CreateThread(function()
         -- Cocaïne
         if(#(Config.cocainerecolt - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("cocarecolt", "Appuyer sur ~INPUT_CONTEXT~ pour recolter de la ~r~ Cocaine")
-                DisplayHelpTextThisFrame("cocarecolt", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("cocarecolt", "Appuyer sur ~INPUT_CONTEXT~ pour recolter de la ~r~ Cocaine")
+                    DisplayHelpTextThisFrame("cocarecolt", false)
+                end
             end 
             
             if(not Config.inAction) then
@@ -71,7 +91,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.cocainerecolt.x, Config.cocainerecolt.y, (Config.cocainerecolt.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.colorcock.r, Config.colorcock.g, Config.colorcock.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.cocaine, "recolt")
             end
@@ -79,8 +99,13 @@ Citizen.CreateThread(function()
 
         if(#(Config.cocainetreatment - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("cocatreat", "Appuyer sur ~INPUT_CONTEXT~ pour traiter votre ~r~Cocaïne")
-                DisplayHelpTextThisFrame("cocatreat", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("cocatreat", "Appuyer sur ~INPUT_CONTEXT~ pour traiter votre ~r~Cocaïne")
+                    DisplayHelpTextThisFrame("cocatreat", false)
+                end
             end
             
             if(not Config.inAction) then
@@ -89,7 +114,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.cocainetreatment.x, Config.cocainetreatment.y, (Config.cocainetreatment.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.colorcock.r, Config.colorcock.g, Config.colorcock.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.cocaine, "treatment")
             end
@@ -97,8 +122,13 @@ Citizen.CreateThread(function()
 
         if(#(Config.cocainesell - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("cocainesell", "Appuyer sur ~INPUT_CONTEXT~ pour vendre votre ~r~Cocaïne")
-                DisplayHelpTextThisFrame("cocainesell", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("cocainesell", "Appuyer sur ~INPUT_CONTEXT~ pour vendre votre ~r~Cocaïne")
+                    DisplayHelpTextThisFrame("cocainesell", false)
+                end
             end
 
             if(not Config.inAction) then
@@ -107,7 +137,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.cocainesell.x, Config.cocainesell.y, (Config.cocainesell.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.colorcock.r, Config.colorcock.g, Config.colorcock.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.cocaine, "sell")
             end
@@ -116,8 +146,13 @@ Citizen.CreateThread(function()
         -- Méthamphétamine
         if(#(Config.methrecolt - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("methrecolt", "Appuyer sur ~INPUT_CONTEXT~ pour recolter de la ~b~Méthamphétamine")
-                DisplayHelpTextThisFrame("methrecolt", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("methrecolt", "Appuyer sur ~INPUT_CONTEXT~ pour recolter de la ~b~Méthamphétamine")
+                    DisplayHelpTextThisFrame("methrecolt", false)
+                end
             end 
             
             if(not Config.inAction) then
@@ -126,7 +161,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.methrecolt.x, Config.methrecolt.y, (Config.methrecolt.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.colormeth.r, Config.colormeth.g, Config.colormeth.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.meth, "recolt")
             end
@@ -134,8 +169,13 @@ Citizen.CreateThread(function()
 
         if(#(Config.methtreatment - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("methtreat", "Appuyer sur ~INPUT_CONTEXT~ pour traiter votre ~b~Méthamphétamine")
-                DisplayHelpTextThisFrame("methtreat", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("methtreat", "Appuyer sur ~INPUT_CONTEXT~ pour traiter votre ~b~Méthamphétamine")
+                    DisplayHelpTextThisFrame("methtreat", false)
+                end
             end
             
             if(not Config.inAction) then
@@ -144,7 +184,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.methtreatment.x, Config.methtreatment.y, (Config.methtreatment.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.colormeth.r, Config.colormeth.g, Config.colormeth.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.meth, "treatment")
             end
@@ -152,8 +192,13 @@ Citizen.CreateThread(function()
 
         if(#(Config.methsell - GetEntityCoords(PlayerPedId(-1))) < Config.toBeVisible) then
             if(Config.inAction) then
-                AddTextEntry("methsell", "Appuyer sur ~INPUT_CONTEXT~ pour vendre votre ~b~Méthamphétamine")
-                DisplayHelpTextThisFrame("methsell", false)
+                if(IsPedInAnyVehicle(PlayerPedId(-1))) then
+                    AddTextEntry("inveh", "~r~Veuillez descendre de votre vehicule !")
+                    DisplayHelpTextThisFrame("inveh", false)
+                else
+                    AddTextEntry("methsell", "Appuyer sur ~INPUT_CONTEXT~ pour vendre votre ~b~Méthamphétamine")
+                    DisplayHelpTextThisFrame("methsell", false)
+                end
             end
 
             if(not Config.inAction) then
@@ -162,7 +207,7 @@ Citizen.CreateThread(function()
             end
 
             DrawMarker(27, Config.methsell.x, Config.methsell.y, (Config.methsell.z-0.99), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.5, Config.colormeth.r, Config.colormeth.g, Config.colormeth.b, 170, 0, 1, 2, 0, nil, nil, 0)
-            if(IsControlJustPressed(1, Config.keyInteract)) then
+            if(IsControlJustPressed(1, Config.keyInteract) and not IsPedInAnyVehicle(PlayerPedId(-1))) then
                 Config.inAction = false
                 drp_drug(Config.meth, "sell")
             end
@@ -313,21 +358,21 @@ function drp_drug(drug, action) -- action = recolt, treatment, sell
 end
 
 
--- Commandes speciales la sauce Bilal
--- /unlock pour se debloquer si on est bloquer a cause du FreezeEntityPosition()
--- /coords pour connaitre ses coordonnes
--- /tpcoords x y z pour se tp a une coords
--- /testtrigger pour test l'anticheat maison :)
+-- For developers (Special commands of the owner):
+    -- /unlock (to unblock if you are blocked because of the FreezeEntityPosition())
+    -- /coords (to know its coordinates)
+    -- /tpcoords x y z (for tp to a coords)
+    -- /testtrigger (to test the home-made anticheat :))
 
-RegisterCommand("unlock", function(source, args, rawCommand) 
-    FreezeEntityPosition(PlayerPedId(-1), false)
-    notif("Debloque")
-end, false)
 
-RegisterCommand("coords", function(source, args, rawCommand) 
-    local coords = GetEntityCoords(PlayerPedId(-1))
-    print("~b~Coords: \n"..coords.x..", "..coords.y..", "..coords.z.."\n")
-end, false)
+-- RegisterCommand("unlock", function(source, args, rawCommand) 
+--     FreezeEntityPosition(PlayerPedId(-1), false)
+-- end, false)
+
+-- RegisterCommand("coords", function(source, args, rawCommand) 
+--     local coords = GetEntityCoords(PlayerPedId(-1))
+--     print("~b~Coords: \n"..coords.x..", "..coords.y..", "..coords.z.."\n")
+-- end, false)
 
 RegisterCommand("tpcoords", function(source, args, rawCommand)
     if(#args ~= 3) then
@@ -342,6 +387,10 @@ RegisterCommand("tpcoords", function(source, args, rawCommand)
     end
 end, false)
 
-RegisterCommand("testtrigger", function(source, args, rawCommand) 
-    TriggerServerEvent("Zod#8682::treatWeed")
-end, false)
+-- RegisterCommand("testtrigger", function(source, args, rawCommand) 
+--     TriggerServerEvent("Zod#8682::treatWeed")
+-- end, false)
+
+
+-- Owner : Zod#8682
+-- Please contact for me anything
