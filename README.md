@@ -45,4 +45,5 @@ RegisterNetEvent("Zod#8682::selltYourDrug")
 
 ## _Credits_
 > **Owner : Zod#8682** <br/>
+> **Language : French** <br/>
 > **You can contact me on discord at any time**
