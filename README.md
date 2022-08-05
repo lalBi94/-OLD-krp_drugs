@@ -1,4 +1,3 @@
-# drp_drug (with ESX)
 ## _Functions `client/`_<br/>
 ```
 drp_drug(drug, action)
