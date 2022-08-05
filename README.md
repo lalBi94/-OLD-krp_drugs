@@ -8,7 +8,7 @@ drp_drug(drug, action)
 > **action = {"recolt", "treatment", "sell"}** _(STRING)_
 
 **Info :** Function that manages the client/server connection
-<br/>
+<br/><br/>
 
 ```
 remove(anim)
