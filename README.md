@@ -26,13 +26,13 @@ RegisterNetEvent("Zod#8682::recoltYourDrug")
 ```
 > Manage the action when the player collecting drugs
 
-<br/></br>
+<br/>
 ```
 RegisterNetEvent("Zod#8682::treatYourDrug")
 ```
 > Manage the action when the player transforming drugs
 
-<br/></br>
+<br/>
 ```
 RegisterNetEvent("Zod#8682::selltYourDrug")
 ```
