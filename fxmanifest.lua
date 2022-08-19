@@ -2,7 +2,7 @@ fx_version 'adamant'
 game 'gta5'
 
 author 'Zod#8682'
-desc 'Drugs Scripts'
+desc 'Drugs Script ESX'
 
 client_scripts{
     'client/cl_main.lua',
