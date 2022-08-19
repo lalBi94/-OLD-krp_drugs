@@ -1,6 +1,9 @@
 fx_version 'adamant'
 game 'gta5'
 
+author 'Zod#8682'
+desc 'Drugs Scripts'
+
 client_scripts{
     'client/cl_main.lua',
     'client/config.lua'
