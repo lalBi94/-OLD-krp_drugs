@@ -1,6 +1,8 @@
 fx_version 'adamant'
 game 'gta5'
 
+lua54 'on'
+
 author 'Zod#8682'
 desc 'Drugs Script ESX'
 
